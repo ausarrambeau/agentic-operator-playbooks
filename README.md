@@ -14,11 +14,20 @@ Each playbook is designed to be:
 
 ## Start here
 
+- [The eight moves](one-pagers/eight-moves.md) — the one-page version for
+  experienced builders who want the operating rules without a guided track.
+- [A weekly map your assistant can maintain](tracks/tracking-starter.md) — keep
+  active work, blockers, next actions, and evidence in one honest map.
 - [Research that survives being challenged](tracks/research-starter.md) — turn
   one live question into a decision-ready research brief, then scale the same
   loop into deeper research.
-
-More tracks will be added as they are tested.
+- [Build one verified slice](tracks/building-starter.md) — turn one idea into a
+  bounded brief, a smallest testable implementation, and a verification
+  receipt.
+- [Turn one real receipt into one honest post](tracks/content-starter.md) —
+  create an original draft whose claims stay inside proof you own.
+- [Find one useful job for your assistant](tracks/explore-starter.md) — run one
+  small, reversible experiment before committing to a larger system.
 
 ## How to use a playbook
 
@@ -30,3 +39,14 @@ More tracks will be added as they are tested.
 
 These files are public so agents can read them directly. If your agent cannot
 open a link, paste the playbook into the conversation instead.
+
+## Validate the course
+
+Run:
+
+```sh
+node validation/check-course.mjs
+```
+
+This checks the learner contracts, private-data boundary, and Markdown fences
+for the one-pager and all five tracks.
