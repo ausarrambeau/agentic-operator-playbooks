@@ -53,6 +53,18 @@ const files = {
       /draft/i,
     ],
   },
+  video: {
+    path: "../tracks/video-starter.md",
+    patterns: [
+      /video-notes\.md/,
+      /transcript/i,
+      /asserted[\s\S]{0,80}demonstrated/i,
+      /SAID-TO-BE-SHOWN/,
+      /TRANSCRIPT ONLY/,
+      /timestamp/i,
+      /do not invent an answer/i,
+    ],
+  },
   explore: {
     path: "../tracks/explore-starter.md",
     patterns: [

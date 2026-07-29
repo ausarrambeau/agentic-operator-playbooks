@@ -21,6 +21,9 @@ Each playbook is designed to be:
 - [Research that survives being challenged](tracks/research-starter.md) — turn
   one live question into a decision-ready research brief, then scale the same
   loop into deeper research.
+- [Turn one video into notes you can still argue with](tracks/video-starter.md)
+  — have your assistant watch a video you never got to, and keep the transcript
+  and timestamps that let you recheck every claim.
 - [Build one verified slice](tracks/building-starter.md) — turn one idea into a
   bounded brief, a smallest testable implementation, and a verification
   receipt.
