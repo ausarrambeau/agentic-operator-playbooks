@@ -25,6 +25,78 @@ You can go back and check a transcript; you cannot go back and check a summary.
 that once before reading the full workflow. You do not need special software or
 several agents; one assistant that can fetch a transcript can run the loop.
 
+## The short version, for humans
+
+If you read nothing else on this page, read this.
+
+**What you get:** one honest, checkable note per video — what it actually said,
+with timestamps you can jump back to, what it claimed versus what it proved, and
+whether it was worth your time. Not a summary.
+
+**What it costs:** about ten minutes the first time. After that it is one
+instruction and a link.
+
+**The method, in three lines:**
+
+1. Get the real transcript with timestamps, before anyone summarizes anything.
+2. Keep three things separate: what was *said*, what was *said to be on screen*,
+   and what was actually *shown*. Most notes quietly merge these, and that is
+   where false confidence comes from.
+3. Save it somewhere you will search later, in the same shape every time.
+
+**The one trap:** if your assistant only has the transcript, it did not see the
+video. Speakers say "as you can see here" constantly, and an assistant reading
+those words will tell you the claim was demonstrated. It was not. It was
+narrated. Half of this playbook exists to stop that.
+
+## What you need before you start
+
+You need one AI assistant. Which one matters less than what it can reach.
+
+**If you already have a coding-capable agent** — the kind that runs in your
+terminal or editor and can read and write files — you can run everything here as
+written. Best experience.
+
+**If you have a desktop or web assistant that can browse and save files**, you
+can run the whole loop. You may have to hand it the transcript yourself if it
+cannot fetch one.
+
+**If you only have a browser chatbot with no file access**, you can still do
+this, with one change: you fetch the transcript and paste it in, and you save
+`video-notes.md` yourself by copying the output. The method works; the
+convenience does not.
+
+**If you do not have an assistant yet**, that is the first thing to fix, and it
+is a ten-minute job, not a project. Pick one that can read files and browse —
+the two mainstream coding agents both qualify, and either is a fine first
+choice. Do not spend a week comparing them. You are choosing a starting point,
+not a spouse, and everything in this playbook is written to work with whichever
+you pick.
+
+Come back here once something can read a file and fetch a page. That is the
+whole prerequisite.
+
+## Hand this file to your agent
+
+This playbook is written to be run, not just read. Download it, give it to your
+assistant, and say:
+
+```text
+Read this playbook end to end, then run "Your first ten-minute task" with me.
+
+Ask me for the video link and the question I want answered, then follow the loop
+exactly: transcript first with timestamps, declare what you actually had access
+to, keep claims separate from what was only said to be on screen, and mark
+nothing DEMONSTRATED that you did not see yourself.
+
+Produce video-notes.md and show it to me before saving anything.
+
+Do not skip the transcript step, and do not give me a summary instead.
+```
+
+That is the whole handoff. Everything below explains why each step is there, so
+you can tell when your agent has quietly dropped one.
+
 ## The watching loop
 
 ### 1. Decide what the video is for
@@ -190,6 +262,12 @@ what you tried, and give me the steps to fetch it myself so I can paste it in.
 Save the result as `video-notes.md`, with the transcript kept alongside it. That
 file is your first receipt.
 
+One note is a file you will remember. Ten is a folder you will browse. Forty is
+a folder you will stop opening, and you will go back to searching the web for
+things you already had a checked answer to. Keep going anyway — the point at
+which this becomes a problem is the point at which it becomes valuable, and
+**This is half a system** below is about what to do when you get there.
+
 ## Make it a skill, not a one-off
 
 Pasting a prompt works once. The point is not to have watched one video — it is
@@ -326,6 +404,18 @@ assistant that watches videos for you and a second brain that knows what you
 already learned. This playbook gets you the capture half honestly and
 completely. Building the retrieval half is the next thing, and it is where the
 compounding actually lives.
+
+That build is what the Agentic Operator community exists for. The playbooks
+there pick up exactly where this one stops: where the notes live, how they get
+indexed, how an agent searches across all of them, and how a contradiction
+surfaces on its own instead of waiting for you to notice it. Free to join, and
+this whole library is inside it.
+
+**<https://whop.com/agentic-operator>**
+
+If you only ever use the loop above, it was still worth your ten minutes. But
+capture without retrieval has a ceiling, and you will hit it around the fortieth
+note.
 
 ## Common failure modes
 
