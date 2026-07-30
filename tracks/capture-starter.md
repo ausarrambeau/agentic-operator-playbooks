@@ -123,6 +123,13 @@ Keep the raw material next to the note, permanently. It costs almost nothing to
 store and it is the difference between a note you can re-examine and a note you
 have to take on faith.
 
+**If your assistant cannot save files**, this step is not cancelled — it moves.
+Have it post the raw material into the chat as its own message, labelled with the
+filename it should have had, before it writes a single line of summary. Then copy
+that message somewhere you keep things. The discipline is the ordering, not the
+filesystem: what matters is that the raw text exists in full, separately, before
+anything compresses it.
+
 ### 3. Capture the numbers at the moment you capture the content
 
 Views, likes, comments, saves, and the date you pulled them.
@@ -214,6 +221,13 @@ Same loop. Different failure on each.
 The easiest of the three. Transcripts are usually available directly, and
 `yt-dlp --write-sub --skip-download` pulls them from a command line.
 
+**Automatic captions arrive tripled.** They scroll, so every line is re-emitted
+with a few more words on the end. One 22-minute video pulled raw came to 18,000
+words that were really 8,000. Have your agent collapse them before reading —
+drop a line when the next one starts with it, then strip the repeated opening
+from what is left. Do it first, because triplicated text makes one remark look
+like a point hammered three times, and you will read that as emphasis later.
+
 **The lie here is length.** An hour of talking compresses to a paragraph that
 feels complete and has silently dropped the structure — what was promised in the
 intro and never delivered, the point raised once and abandoned, the order the
@@ -279,8 +293,11 @@ Work in this order:
 1. Search my existing notes for this source or its core idea. Tell me if I
    already have it. If I do, stop and say so.
 2. Retrieve the raw material — transcript, post text, thread, caption — and
-   save it to a file BEFORE you summarize anything. Tell me exactly what you
-   could and could not access.
+   save it to a file BEFORE you summarize anything. If you cannot save files,
+   post it in the chat as its own message first, labelled with the filename it
+   should have. If it is auto-generated captions, de-duplicate the scrolling
+   repeats before you read it. Tell me exactly what you could and could not
+   access.
 3. Record the engagement numbers and the date you pulled them.
 4. Write a provenance block: source, method, retrieved_at, and a scope line
    saying what you got AND what you did not.
@@ -442,6 +459,8 @@ Get to annoying first. That is the milestone.
 ## Common failure modes
 
 - Summarizing before saving the raw material, and losing the original forever.
+- Reading auto-captions raw, so one remark counted three times reads as emphasis.
+- Skipping the raw-material step entirely because the assistant cannot save files.
 - Capturing the same source twice and reading it as two sources agreeing.
 - Grading a claim `DEMONSTRATED` from a transcript.
 - Treating an Instagram reel as its audio and missing the text on screen.

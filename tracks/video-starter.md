@@ -125,6 +125,16 @@ reconstructing one from the title, description, or its own prior knowledge. An
 invented transcript is worse than no transcript, because it looks identical to a
 real one.
 
+**Auto-captions arrive tripled — de-duplicate before reading.** YouTube's
+automatic captions scroll, so each line is re-emitted with the next few words
+appended. Pulled raw, one 22-minute video came out as 18,000 words that were
+really 8,000; the same sentence appears two or three times with a growing tail.
+Tell your agent to collapse those before it reads anything: drop a line when the
+next line starts with it, then strip the repeated opening from what remains.
+
+It matters beyond tidiness. Triplicated text makes a point look like it was made
+three times, and repetition is the signal you will later read as emphasis.
+
 ### 3. Keep the structure
 
 Once the transcript exists, the useful questions are structural:
