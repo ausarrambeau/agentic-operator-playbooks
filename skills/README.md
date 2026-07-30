@@ -9,19 +9,56 @@ method turned into something your assistant can run on command.
 
 ## Installing
 
-**Claude Code / Codex** — drop the folder into your skills directory:
+All three harnesses use the same layout — `skills/<name>/SKILL.md` with `name`
+and `description` at the top — so one folder installs into any of them. Pick your
+line:
+
+| Harness | Skills directory |
+| --- | --- |
+| Claude Code | `~/.claude/skills/` |
+| Codex | `~/.codex/skills/` |
+| Hermes | `~/.hermes/skills/` |
+
+**With git** — clone once, copy into whichever you use:
 
 ```bash
-cp -r skills/ingest ~/.claude/skills/ingest     # Claude Code
-cp -r skills/ingest ~/.codex/skills/ingest      # Codex
+git clone --depth 1 https://github.com/ausarrambeau/digital-twin-playbooks.git
+cd digital-twin-playbooks
+cp -r skills/ingest ~/.claude/skills/ingest      # Claude Code
+cp -r skills/ingest ~/.codex/skills/ingest       # Codex
+cp -r skills/ingest ~/.hermes/skills/ingest      # Hermes
 ```
+
+**Without git** — two files, straight from the raw URLs. Change the first line to
+point at whichever harness you use:
+
+```bash
+DEST=~/.claude/skills/ingest
+SRC=https://raw.githubusercontent.com/ausarrambeau/digital-twin-playbooks/main/skills/ingest
+mkdir -p "$DEST/scripts"
+curl -fsSL -o "$DEST/SKILL.md" "$SRC/SKILL.md"
+curl -fsSL -o "$DEST/scripts/video-prep.sh" "$SRC/scripts/video-prep.sh"
+chmod +x "$DEST/scripts/video-prep.sh"
+```
+
+Both routes produce byte-identical files.
 
 Then invoke it by name: *"use the ingest skill on this link"*, or `/ingest` if
 your assistant exposes skills as slash commands.
 
-**If you already have a skill named `ingest`, that copy will overwrite it.**
-Check before running the command, and install under a different folder name if
-you need to keep both.
+**If you already have a skill named `ingest`, these commands overwrite it.** Look
+before you run one:
+
+```bash
+ls -d ~/.claude/skills/ingest ~/.codex/skills/ingest ~/.hermes/skills/ingest 2>/dev/null
+```
+
+Anything that prints already exists. Back it up first, or install this under a
+different folder name and invoke it by that name instead.
+
+**Any other assistant** — Cursor, Windsurf, a web chatbot — paste the contents of
+`SKILL.md` into a saved instruction, rule, or custom command. The frontmatter is
+for harnesses that read it; everything below is the skill and is portable as-is.
 
 **To adapt it rather than copy it,** Claude Code ships a `skill-creator` skill —
 say *"use skill-creator to adapt this for my setup."* It handles the packaging,
@@ -29,7 +66,7 @@ and more usefully it can tune the `description` line. That line is what decides
 whether the skill ever fires: if it does not match how you actually phrase a
 request, you will have a perfectly good skill that never triggers, and you will
 assume it does not work. Worth ten minutes even if you change nothing else.
-Codex has no equivalent — there, adapt the file by hand.
+Codex and Hermes ship no equivalent — there, adapt the file by hand.
 
 **Cursor, Windsurf, or any assistant with custom instructions** — paste the
 contents of `SKILL.md` into a saved instruction, rule, or custom command. The
