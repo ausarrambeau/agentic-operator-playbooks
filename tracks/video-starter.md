@@ -284,7 +284,18 @@ produces the same sections in the same order, which is what makes the notes
 comparable later. Two notes with the same shape can be diffed. Two summaries
 cannot.
 
-Paste this into your agent to build it:
+**The finished version is in this repository, free:** [`skills/ingest`](../skills/ingest/SKILL.md).
+It is this loop with its output contract already written, plus the synthesis pass
+that ranks and cross-links notes once you have more than a few — and a script
+that pulls keyframes, a timestamped transcript, and the editing pace for you.
+Install instructions per assistant are in [skills/README.md](../skills/README.md).
+Set the three paths at the top of it, and it runs.
+
+Take that one. It is the same skill this method was built with, not a
+demonstration version.
+
+If your assistant uses a format that file does not fit, build your own from the
+same spec — paste this:
 
 ```text
 Write me a reusable skill I can invoke on any video.
