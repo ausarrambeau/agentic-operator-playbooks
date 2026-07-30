@@ -23,6 +23,14 @@ your assistant exposes skills as slash commands.
 Check before running the command, and install under a different folder name if
 you need to keep both.
 
+**To adapt it rather than copy it,** Claude Code ships a `skill-creator` skill —
+say *"use skill-creator to adapt this for my setup."* It handles the packaging,
+and more usefully it can tune the `description` line. That line is what decides
+whether the skill ever fires: if it does not match how you actually phrase a
+request, you will have a perfectly good skill that never triggers, and you will
+assume it does not work. Worth ten minutes even if you change nothing else.
+Codex has no equivalent — there, adapt the file by hand.
+
 **Cursor, Windsurf, or any assistant with custom instructions** — paste the
 contents of `SKILL.md` into a saved instruction, rule, or custom command. The
 frontmatter at the top is Claude/Codex-specific; everything below it is the
