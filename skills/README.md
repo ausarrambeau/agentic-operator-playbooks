@@ -1,0 +1,74 @@
+# Skills
+
+Ready-to-install capabilities. A playbook teaches you a method; a skill is that
+method turned into something your assistant can run on command.
+
+| Skill | What it does | Playbook |
+| --- | --- | --- |
+| [`ingest`](ingest/SKILL.md) | Turn videos, reels, posts, and articles into checkable notes, then force the synthesis pass that ranks and cross-links them | [capture-starter](../tracks/capture-starter.md) |
+
+## Installing
+
+**Claude Code / Codex** — drop the folder into your skills directory:
+
+```bash
+cp -r skills/ingest ~/.claude/skills/ingest     # Claude Code
+cp -r skills/ingest ~/.codex/skills/ingest      # Codex
+```
+
+Then invoke it by name: *"use the ingest skill on this link"*, or `/ingest` if
+your assistant exposes skills as slash commands.
+
+**If you already have a skill named `ingest`, that copy will overwrite it.**
+Check before running the command, and install under a different folder name if
+you need to keep both.
+
+**Cursor, Windsurf, or any assistant with custom instructions** — paste the
+contents of `SKILL.md` into a saved instruction, rule, or custom command. The
+frontmatter at the top is Claude/Codex-specific; everything below it is the
+skill and is portable as-is.
+
+**A web chatbot with no saved instructions** — paste `SKILL.md` at the top of a
+conversation and work in that thread. You lose persistence, not method.
+
+**Anything else** — hand `SKILL.md` to your assistant and say: *"turn this into
+a saved instruction in whatever format you use, show it to me before saving,
+then tell me how to invoke it."*
+
+## Set your three paths first
+
+`ingest` is storage-agnostic and needs to know where your notes, raw material,
+and synthesis live. Open `SKILL.md`, find the **Where things go** table, and
+replace the suggestions with your actual locations before first use. That is the
+only edit required.
+
+## The video path is optional
+
+`scripts/video-prep.sh` extracts keyframes, a timestamped transcript, and pacing
+metadata. You only need it for visual content — reels, shorts, anything where
+on-screen text and editing carry meaning. Text and long-form audio need none of
+it.
+
+```bash
+brew install ffmpeg python3 whisper-cpp yt-dlp        # macOS
+```
+
+On Linux: `apt install ffmpeg python3`, `pipx install yt-dlp`, and build
+[whisper.cpp](https://github.com/ggerganov/whisper.cpp). Then fetch a model —
+the script prints the exact `curl` command if it cannot find one, and accepts
+any model you already have via `WHISPER_MODEL`.
+
+Run it once to check your setup:
+
+```bash
+./skills/ingest/scripts/video-prep.sh <a-local-video.mp4> ./prep-test
+```
+
+It fails loudly with install instructions when something is missing, and it will
+tell you plainly when transcription failed rather than reporting a crashed
+transcriber as a silent video. Those are different things, and only one of them
+means the video has no speech.
+
+Login-gated platforms (Instagram, TikTok) cannot always be fetched by URL. The
+script says so and tells you how to pass cookies or a local file instead —
+everything downstream works identically either way.

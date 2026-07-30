@@ -259,24 +259,27 @@ Boundaries:
   qualified professional.
 ```
 
-## How the research skills divide the work
+## How the research jobs divide up
 
-Our system separates the jobs because retrieval, judgment, and memory fail in
-different ways:
+Split these five jobs, whether you run them as five saved skills or five steps
+in one conversation. They are separated because retrieval, judgment, and memory
+fail in different ways, and a single prompt doing all five hides which one broke:
 
-- **`second-brain` — memory check:** finds prior work before tokens are spent
-  again.
-- **`agent-reach` — retrieval:** reaches the web, code, videos, and relevant
-  platforms using the best available read-only method.
-- **`deep-research-codex` — verification:** creates independent angles,
-  extracts falsifiable claims, tries to refute them, synthesizes from the
-  verified ledger, and audits the result.
-- **`research-ingest` — persistence:** preserves the report with its
-  confidence, caveats, refutations, and retrieval date.
-- **`ingest` — synthesis:** connects the result to existing projects, marks
-  convergence or contradiction, and surfaces the actions that matter.
+- **Memory check** — find what you already concluded before spending anything
+  finding it again.
+- **Retrieval** — reach the web, code, videos, and platforms, read-only, by
+  whatever method actually works for each.
+- **Verification** — build independent angles, extract falsifiable claims, try
+  to refute them, synthesize only from what survived, then audit the result.
+- **Persistence** — preserve the report with its confidence, caveats,
+  refutations, and retrieval date attached.
+- **Synthesis** — connect the result to your existing work, mark convergence and
+  contradiction, and surface the actions that matter.
 
-You do not need our exact tools to use the loop. You need the separation of
+The last two are the [`ingest` skill](../skills/ingest/SKILL.md) in this
+repository, free — install it and those stages are handled.
+
+You do not need any particular tool to run this loop. You need the separation of
 responsibilities and the receipts each stage produces.
 
 ## Common failure modes

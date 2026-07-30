@@ -75,13 +75,49 @@ const files = {
       /Do not purchase/i,
     ],
   },
+  "ingest skill": {
+    path: "../skills/ingest/SKILL.md",
+    patterns: [
+      /Storage alone is never done|not done.{0,40}notes are written/i,
+      /SAID-TO-BE-SHOWN/,
+      /DEMONSTRATED.{0,15} is forbidden/,
+      /Tier 1 = act on these/,
+      /Repetition is not corroboration/i,
+      /Dedup check first/i,
+      /shot table/i,
+      /scope:/,
+    ],
+  },
+  "ingest skill script": {
+    path: "../skills/ingest/scripts/video-prep.sh",
+    patterns: [/MAX_SCENE_FRAMES/, /TRANSCRIPT_STATUS/, /whisper-cli/],
+  },
+  "skills readme": {
+    path: "../skills/README.md",
+    allowRuntimePaths: true,
+    patterns: [/skills\/ingest/, /WHISPER_MODEL/],
+  },
+  capture: {
+    path: "../tracks/capture-starter.md",
+    patterns: [
+      /capture-notes\.md/,
+      /SAID-TO-BE-SHOWN/,
+      /TEXT ONLY or TRANSCRIPT ONLY, .{0,10}DEMONSTRATED.{0,10} is forbidden/,
+      /retrieved_at/,
+      /scope:/,
+      /on-screen text/i,
+      /Repetition is not corroboration/,
+      /without asking me\s+first/i,
+    ],
+  },
 };
 
+// Never permitted anywhere: real machine paths, secrets, and platform IDs.
 const publicBoundaryPatterns = [
   /\/Users\//,
-  /~\/\./,
-  /\.codex/,
-  /\.claude/,
+  /ObsidianMe/,
+  /second-brain/,
+  /brain\.js/,
   /WHOP_/,
   /API_KEY/,
   /BLOB_READ_WRITE_TOKEN/,
@@ -90,6 +126,11 @@ const publicBoundaryPatterns = [
   /app_[A-Za-z0-9]+/,
   /gpt-[0-9]/i,
 ];
+
+// Home-relative runtime directories. Forbidden in member-facing prose, because
+// there they signal our own machine layout leaking in — but install docs have to
+// name them, so an entry may opt out with `allowRuntimePaths`.
+const runtimePathPatterns = [/~\/\./, /\.codex/, /\.claude/];
 
 let failed = false;
 
@@ -113,7 +154,10 @@ for (const [name, contract] of Object.entries(files)) {
     console.log(`PASS ${name} contract`);
   }
 
-  const boundaryHits = publicBoundaryPatterns.filter((pattern) => pattern.test(contents));
+  const activeBoundaryPatterns = contract.allowRuntimePaths
+    ? publicBoundaryPatterns
+    : [...publicBoundaryPatterns, ...runtimePathPatterns];
+  const boundaryHits = activeBoundaryPatterns.filter((pattern) => pattern.test(contents));
   if (boundaryHits.length > 0) {
     failed = true;
     console.error(
