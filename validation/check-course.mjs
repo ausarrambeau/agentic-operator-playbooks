@@ -100,9 +100,9 @@ const files = {
   capture: {
     path: "../tracks/capture-starter.md",
     patterns: [
-      /capture-notes\.md/,
+      /capture-<source>-<date>\.md/,
       /SAID-TO-BE-SHOWN/,
-      /TEXT ONLY or TRANSCRIPT ONLY, .{0,10}DEMONSTRATED.{0,10} is forbidden/,
+      /`text-source` or `transcript-only`, .{0,10}DEMONSTRATED.{0,10} is forbidden/,
       /retrieved_at/,
       /scope:/,
       /on-screen text/i,

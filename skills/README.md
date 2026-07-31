@@ -24,10 +24,14 @@ line:
 ```bash
 git clone --depth 1 https://github.com/ausarrambeau/digital-twin-playbooks.git
 cd digital-twin-playbooks
-cp -r skills/ingest ~/.claude/skills/ingest      # Claude Code
-cp -r skills/ingest ~/.codex/skills/ingest       # Codex
-cp -r skills/ingest ~/.hermes/skills/ingest      # Hermes
+mkdir -p ~/.claude/skills && cp -r skills/ingest/. ~/.claude/skills/ingest/   # Claude Code
+mkdir -p ~/.codex/skills  && cp -r skills/ingest/. ~/.codex/skills/ingest/    # Codex
+mkdir -p ~/.hermes/skills && cp -r skills/ingest/. ~/.hermes/skills/ingest/   # Hermes
 ```
+
+The trailing `/.` is load-bearing. Without it, `cp -r` copies the *folder* into
+the target when the target already exists, leaving you with
+`ingest/ingest/SKILL.md` — which no harness loads, and which reports no error.
 
 **Without git** — two files, straight from the raw URLs. Change the first line to
 point at whichever harness you use:
@@ -46,8 +50,10 @@ Both routes produce byte-identical files.
 Then invoke it by name: *"use the ingest skill on this link"*, or `/ingest` if
 your assistant exposes skills as slash commands.
 
-**If you already have a skill named `ingest`, these commands overwrite it.** Look
-before you run one:
+**If you already have a skill named `ingest`, these commands replace it, file by
+file, with no prompt and no backup.** That is worth checking before you run one,
+and it is not hypothetical — an assistant that has been in use for a while very
+often has one. Look first:
 
 ```bash
 ls -d ~/.claude/skills/ingest ~/.codex/skills/ingest ~/.hermes/skills/ingest 2>/dev/null
@@ -55,10 +61,6 @@ ls -d ~/.claude/skills/ingest ~/.codex/skills/ingest ~/.hermes/skills/ingest 2>/
 
 Anything that prints already exists. Back it up first, or install this under a
 different folder name and invoke it by that name instead.
-
-**Any other assistant** — Cursor, Windsurf, a web chatbot — paste the contents of
-`SKILL.md` into a saved instruction, rule, or custom command. The frontmatter is
-for harnesses that read it; everything below is the skill and is portable as-is.
 
 **To adapt it rather than copy it,** Claude Code ships a `skill-creator` skill —
 say *"use skill-creator to adapt this for my setup."* It handles the packaging,
@@ -106,8 +108,11 @@ any model you already have via `WHISPER_MODEL`.
 Run it once to check your setup:
 
 ```bash
-./skills/ingest/scripts/video-prep.sh <a-local-video.mp4> ./prep-test
+~/.claude/skills/ingest/scripts/video-prep.sh <a-local-video.mp4> ./prep-test
 ```
+
+Use whichever skills directory you installed into — the script lives beside
+`SKILL.md`, not in whatever folder your shell happens to be in.
 
 It fails loudly with install instructions when something is missing, and it will
 tell you plainly when transcription failed rather than reporting a crashed

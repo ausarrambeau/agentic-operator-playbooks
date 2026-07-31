@@ -25,9 +25,9 @@ once, on one piece of content, before reading the rest. One honest note beats a
 capture system you designed for a week and never ran.
 
 **If you want depth on a single long video** — structure, promises made and
-dropped, a full claims table — that is the video playbook, not this one. This
-one is about running the same discipline across everything you consume, on three
-surfaces, without it becoming a job.
+dropped, a full claims table — that is the [video playbook](video-starter.md),
+not this one. This one is about running the same discipline across everything
+you consume, on three surfaces, without it becoming a job.
 
 ## The short version, for humans
 
@@ -83,14 +83,21 @@ say:
 ```text
 Read this playbook end to end, then run "Your first ten-minute task" with me.
 
-Ask me for one link and what I want out of it, then follow the loop exactly:
-check for a duplicate first, save the raw material before you summarize
-anything, stamp the provenance block including what you could NOT retrieve, and
-grade every claim as ASSERTED, SAID-TO-BE-SHOWN, or DEMONSTRATED.
+Ask me for one link and what I want out of it — or, if you cannot open links,
+ask me to paste the transcript, caption, or post text instead. Then follow the
+loop exactly: check for a duplicate first, save the raw material before you
+summarize anything, stamp the provenance block including what you could NOT
+retrieve, and grade every claim as ASSERTED, SAID-TO-BE-SHOWN, or DEMONSTRATED.
 
-If you only have text or a transcript, nothing may be marked DEMONSTRATED.
+Declare the modality as exactly one of: text-source, transcript-only,
+frames+transcript. On text-source or transcript-only, nothing may be marked
+DEMONSTRATED.
 
-Show me the note before you save anything.
+Never invent or reconstruct a transcript. If retrieval fails, say so and tell me
+how to fetch it myself.
+
+Show me the note before you save anything. If you cannot save files, show me the
+finished note in the chat and say plainly that keeping it is my job.
 ```
 
 Everything below explains why each step is there, so you can tell when your
@@ -140,6 +147,31 @@ date is a data point you can compare against the next one. If you are capturing
 content to learn what performs, the numbers are not decoration — they are the
 only thing separating this from taste.
 
+**Some sources will not give you the numbers.** An X post read without logging
+in has no bookmark count. A plain article has no engagement figures at all. A
+video fetch can return the captions and the media and none of the counts. A
+private or unlisted post shows nothing to anyone outside it. None of that is a
+failure — it is the normal state of a good half of what you capture.
+
+When it happens, say so on the note's **Numbers at retrieval** line — the same
+line the numbers themselves would have been on, not a footnote somewhere else:
+
+```text
+Numbers at retrieval (2026-07-30): not available — read logged out,
+counts not shown
+```
+
+Partial goes the same way, one metric at a time: "196,861 views · likes not
+returned by the fetch · bookmarks require login." A note that names which numbers
+were missing and why is a complete capture. A note where the numbers are simply
+gone is indistinguishable from one where your agent skipped the step, and in a
+month you will not be able to tell which you are holding.
+
+Never estimate a number, never infer one from how comparable posts do, and never
+carry one over from another capture, another date, or a screenshot of something
+else. A number you made up looks exactly like a number you pulled, and it will be
+the thing the next capture gets compared against.
+
 ### 4. Stamp the provenance, including what you did not get
 
 Every capture opens with the same block:
@@ -162,9 +194,13 @@ know the difference is the moment you captured it.
 
 State what you actually had access to:
 
-- **TEXT ONLY** — post text, thread, article, caption.
-- **TRANSCRIPT ONLY** — the words, none of the picture.
-- **FRAMES + TRANSCRIPT** — you actually looked at the images.
+- `text-source` — post text, thread, article, caption.
+- `transcript-only` — the words, none of the picture.
+- `frames+transcript` — you actually looked at the images.
+
+Those three tokens, spelled exactly that way, are what goes on the note. The
+installable skill below uses the same three, so a note written by hand and a
+note written by the skill can sit in the same folder and be compared.
 
 Then grade every material claim as exactly one of:
 
@@ -174,7 +210,7 @@ Then grade every material claim as exactly one of:
 | `SAID-TO-BE-SHOWN` | The source pointed at something — "as you can see here" — that you did not see. |
 | `DEMONSTRATED` | You saw the evidence yourself and checked it. |
 
-**On TEXT ONLY or TRANSCRIPT ONLY, `DEMONSTRATED` is forbidden.** Not
+**On `text-source` or `transcript-only`, `DEMONSTRATED` is forbidden.** Not
 discouraged — forbidden.
 
 This is not pedantry, it is a measured failure. Running one ten-minute video
@@ -218,8 +254,16 @@ Same loop. Different failure on each.
 
 ### YouTube — long, and the transcript is nearly free
 
-The easiest of the three. Transcripts are usually available directly, and
-`yt-dlp --write-sub --skip-download` pulls them from a command line.
+The easiest of the three. Transcripts are usually available directly, and once
+`yt-dlp` is installed it pulls them from a command line:
+
+```text
+yt-dlp --write-subs --write-auto-subs --sub-langs en --skip-download <url>
+```
+
+Both flags matter. `--write-subs` alone gets only the subtitles the uploader
+supplied, and most videos have none — the automatic captions are what you are
+actually after, and they are the ones with the problem below.
 
 **Automatic captions arrive tripled.** They scroll, so every line is re-emitted
 with a few more words on the end. One 22-minute video pulled raw came to 18,000
@@ -232,7 +276,8 @@ like a point hammered three times, and you will read that as emphasis later.
 feels complete and has silently dropped the structure — what was promised in the
 intro and never delivered, the point raised once and abandoned, the order the
 argument was built in. Keep timestamps on every claim so you can jump back. If
-you want the deep single-video treatment, use the video playbook.
+you want the deep single-video treatment, use the
+[video playbook](video-starter.md).
 
 ### Instagram — short, visual, and the words are the least of it
 
@@ -247,10 +292,19 @@ speech at all are not empty — they are carrying everything visually.
 
 So for anything on this surface, you need frames, not just words. Have your
 agent extract keyframes — densely across the first three seconds, then at each
-scene change — and actually read them alongside the transcript. Build the note
-around a shot table: time range, what is on screen, the on-screen text, the
-spoken words, and what that shot is *for* (hook, pattern interrupt, proof, call
-to action).
+scene change — and actually read them alongside the transcript.
+
+**If your agent cannot extract frames**, do it by hand. Screenshot the reel at
+the hook and again at every visible change — new scene, new text on screen, a
+thing being shown — then paste the screenshots into the chat and type out the
+on-screen text next to each one. It is slower and it is the same evidence. What
+does not count is describing the reel from memory: that is your summary of the
+pictures, not the pictures, and nothing built on it may be graded above
+`SAID-TO-BE-SHOWN`.
+
+Either way, build the note around a shot table: time range, what is on screen,
+the on-screen text, the spoken words, and what that shot is *for* (hook, pattern
+interrupt, proof, call to action).
 
 A frame your agent did not look at is not evidence. If the frames only cover
 part of the post, claims about the rest stay `SAID-TO-BE-SHOWN`. And always pull
@@ -283,7 +337,9 @@ Help me capture one piece of content properly, so it is still useful to me in a
 month.
 
 LINK:
-[Paste one YouTube, Instagram, or X link]
+[Paste one YouTube, Instagram, or X link. If you are doing the fetching
+yourself, write "pasted below" here instead, and put the transcript, caption,
+post text, or screenshots at the bottom of this message.]
 
 WHAT I WANT OUT OF IT:
 [One sentence — the question you want answered, or "I don't know yet, tell me
@@ -293,35 +349,62 @@ Work in this order:
 1. Search my existing notes for this source or its core idea. Tell me if I
    already have it. If I do, stop and say so.
 2. Retrieve the raw material — transcript, post text, thread, caption — and
-   save it to a file BEFORE you summarize anything. If you cannot save files,
+   save it to a file BEFORE you summarize anything. If I pasted it below, that
+   is the raw material; use it and retrieve nothing. If you cannot save files,
    post it in the chat as its own message first, labelled with the filename it
    should have. If it is auto-generated captions, de-duplicate the scrolling
    repeats before you read it. Tell me exactly what you could and could not
    access.
-3. Record the engagement numbers and the date you pulled them.
+3. Record the engagement numbers and the date you pulled them. If the platform
+   did not give you some or all of them, write "not available" in their place
+   with the reason. Do not estimate one or carry one over from anywhere else.
 4. Write a provenance block: source, method, retrieved_at, and a scope line
    saying what you got AND what you did not.
-5. Declare your modality: TEXT ONLY, TRANSCRIPT ONLY, or FRAMES + TRANSCRIPT.
+5. Declare your modality as exactly one of: text-source, transcript-only,
+   frames+transcript.
 6. Answer my question, quoting the source with timestamps where they exist.
 7. Build a claims table. Grade each claim ASSERTED, SAID-TO-BE-SHOWN, or
-   DEMONSTRATED. If your modality is TEXT ONLY or TRANSCRIPT ONLY, nothing may
-   be DEMONSTRATED.
+   DEMONSTRATED. If your modality is text-source or transcript-only, nothing
+   may be DEMONSTRATED.
 8. List what you could not verify — separately from what is false.
-9. End with: was this worth my time, what does it change, and one next action.
+9. Say what this confirms and what it contradicts in the notes I already have,
+   naming both sides. Then end with: was this worth my time, what does it
+   change, and one next action.
 
-Save it as capture-notes.md, keeping the raw material alongside it.
+Give me the note with exactly these sections, in this order, even when one of
+them is empty:
+
+  # capture: <title>
+  Provenance (source, method, retrieved_at, scope)
+  Modality
+  Numbers at retrieval
+  Question
+  ## The answer          (quoted, with timestamps where they exist)
+  ## Claims              (table: claim, location, grade)
+  ## Unverified
+  ## Convergence and contradiction
+  ## Verdict and next action
+
+Save it as capture-<source>-<date>.md — capture-youtube-2026-07-30.md, for
+instance — keeping the raw material alongside it. Never write over a capture
+that is already there. If you cannot save files, post the finished note in the
+chat as its own message, headed with the filename it should have had, so I can
+keep it myself.
 
 Rules:
+- Never invent or reconstruct a transcript. If retrieval fails, say so and tell
+  me how to fetch it myself.
 - Do not summarize before saving the raw material.
 - Do not mark anything DEMONSTRATED that you did not see yourself.
 - Do not fill an empty section with something plausible. Write "none."
-- Show me the note before saving anything.
+- Show me the note before saving anything. If you cannot save files, show it to
+  me as the finished note and say plainly that saving it is my job.
 - Do not post, share, upload, download, or contact anyone without asking me
   first.
 ```
 
-The saved `capture-notes.md`, with the raw material sitting next to it, is your
-first receipt.
+The saved `capture-<source>-<date>.md`, with the raw material sitting next to
+it, is your first receipt.
 
 ## Make it a skill, not a one-off
 
@@ -352,10 +435,11 @@ to capture, ingest, or take notes on it.
 WHAT IT DOES, in order:
 1. Check my existing notes for a duplicate. Stop if it exists.
 2. Retrieve raw material and save it before summarizing.
-3. Record engagement numbers with the retrieval date.
+3. Record engagement numbers with the retrieval date, or "not available" plus
+   the reason where the platform did not supply them.
 4. Write the provenance block, including a scope line for what was NOT
    retrieved.
-5. Declare modality: TEXT ONLY / TRANSCRIPT ONLY / FRAMES + TRANSCRIPT.
+5. Declare modality: text-source / transcript-only / frames+transcript.
 6. Answer my question with quotes and timestamps.
 7. Build the claims table with grades.
 8. Mark what is unverified.
@@ -378,7 +462,7 @@ order, even when a section is empty:
   Numbers at retrieval
   Question
   ## The answer          (quoted, with timestamps where they exist)
-  ## Claims              (table: claim, location, grade, confidence)
+  ## Claims              (table: claim, location, grade)
   ## Unverified
   ## Convergence and contradiction
   ## Verdict and next action
@@ -388,7 +472,7 @@ Claim grades are exactly: ASSERTED, SAID-TO-BE-SHOWN, DEMONSTRATED.
 HARD RULES:
 - Never invent or reconstruct a transcript. If retrieval fails, say so and tell
   me how to fetch it myself.
-- On TEXT ONLY or TRANSCRIPT ONLY, nothing may be DEMONSTRATED.
+- On text-source or transcript-only, nothing may be DEMONSTRATED.
 - Never drop a section. Write "none."
 - Never discard raw material after writing the note.
 - Never post, share, upload, or download without asking me first.
@@ -466,6 +550,10 @@ Get to annoying first. That is the milestone.
 - Treating an Instagram reel as its audio and missing the text on screen.
 - Capturing an X post whose real content was behind a link nobody opened.
 - Recording that something "performed well" without the numbers or the date.
+- Dropping the numbers without a word when the platform did not give them, so the
+  note cannot say whether they were missing or skipped.
+- Filling a missing number with an estimate, or with one carried over from
+  another capture or another date.
 - Writing "not mentioned" as if it meant "not true."
 - Free-form notes with a different shape each time, which cannot be compared.
 - Capturing on impulse instead of from a roster, so the archive has no shape.
@@ -474,11 +562,14 @@ Get to annoying first. That is the milestone.
 ## Done means
 
 - One note exists per captured source, in one fixed shape.
-- The raw material is saved alongside every note and was saved first.
+- The raw material is saved alongside every note and was saved first. Where your
+  assistant cannot save files, both went into the chat in that order and you
+  kept them somewhere yourself.
 - Every note carries source, method, retrieval date, and an explicit scope line
   naming what was not retrieved.
 - Modality is declared, and no claim is graded above it.
-- Engagement numbers carry the date they were pulled.
+- Engagement numbers carry the date they were pulled, or a line in their place
+  saying they were not available and why. Nothing is estimated.
 - Unverified material is visible and separated from what is false.
 - Every note says what it confirms, what it contradicts, and what to do.
 - External actions still require your approval.

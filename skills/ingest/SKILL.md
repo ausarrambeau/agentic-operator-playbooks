@@ -24,7 +24,7 @@ repository, a wiki. Set these once at the top of your own copy:
 
 | Place | Holds | Suggested |
 | --- | --- | --- |
-| **Notes** | One note per source | `notes/<YYYY-MM-DD> - <Title>.md` |
+| **Notes** | One note per source | `notes/capture-<source>-<date>.md` |
 | **Raw** | Transcripts, frames, metadata, post JSON | `raw/<YYYY-MM-DD>-<id>/` |
 | **Synthesis** | The ranked, cross-source layer | `synthesis/` |
 
@@ -67,6 +67,25 @@ pricing" is not a note. "He claims a 3-tier price ladder outperformed a single
 price by 40%, asserted, no data shown" is a note.
 
 Timestamped chapters for anything with a timeline.
+
+The note carries exactly these sections, in this order, even when one of them is
+empty — write "none" rather than dropping it:
+
+```text
+# capture: <title>
+Provenance (source, method, retrieved_at, scope)
+Modality
+Numbers at retrieval
+Question
+## The answer          (quoted, with timestamps where they exist)
+## Claims              (table: claim, location, grade)
+## Unverified
+## Convergence and contradiction
+## Verdict and next action
+```
+
+That is the same shape the capture playbook produces by hand, so notes written
+either way sit in one folder and compare cleanly.
 
 #### Declare the modality, and never grade evidence above it
 
@@ -128,6 +147,19 @@ Where engagement numbers exist, record them **with the date you pulled them**.
 Numbers move. "It did well" is worthless in a month; "196,861 views and 2,485
 bookmarks as of the 29th" is a data point you can compare.
 
+Where they do not exist, record that in their place, with the reason:
+
+```text
+numbers: not available — post read logged out, counts not shown
+```
+
+Logged-out reads, plain articles, private or unlisted posts, and fetches that
+return media and captions but no counts are all normal. Partial goes per metric:
+name what you got and what blocked the rest. **Never estimate a number, infer one
+from comparable posts, or carry one over from another capture or another date.**
+An absent numbers line reads as a skipped step, and an invented number is
+indistinguishable from a real one the moment it is written down.
+
 #### Cost discipline when running a batch
 
 If you parallelize three or more sources across subagents, **set the model
@@ -150,8 +182,12 @@ from evidence once it is in a transcript.
 Running the prep below is what earns the right to mark anything `DEMONSTRATED`:
 
 ```bash
-scripts/video-prep.sh <url-or-file> <workdir>
+<skills-dir>/ingest/scripts/video-prep.sh <url-or-file> <workdir>
 ```
+
+Resolve that path against the folder this file is installed in, not against
+wherever your shell happens to be standing — `<skills-dir>` is your assistant's
+skills directory, and the relative path alone will miss from anywhere else.
 
 It produces `frames/` (scene-change keyframes plus a dense burst over the 0–3s
 hook window, every filename carrying its own timestamp), `transcript.json`
@@ -191,6 +227,14 @@ Rules of this path:
 
 Read the new notes **plus** the relevant synthesis context: `_index.md` and the
 current tier heads. Not the whole corpus — that is what the index is for.
+
+**On the first run none of that exists yet.** Create it before you read it: an
+`_index.md` holding the manifest table header and a "latest batch" line, empty
+`Tier1-01.md`, `Tier2-01.md` and `Tier3-01.md` heads, and
+`B000 standing rule and dispositions.md` carrying the standing rule from the top
+of this file. Then continue as below, starting at `B001`. A missing scaffold
+file is never a reason to skip the synthesis pass — it is a file you have not
+made yet.
 
 Then write the batch in:
 
@@ -247,6 +291,7 @@ This is the part a human actually reads. Everything above earns it.
 - [ ] Every non-duplicate source has a note with frontmatter and a declared modality
 - [ ] No claim is graded above its modality; `DEMONSTRATED` appears only where frames or the source document were actually read
 - [ ] Raw material saved **before** the note was written, with provenance and a scope line
+- [ ] Engagement numbers recorded with their retrieval date, or marked not available with the reason — never estimated
 - [ ] Synthesis updated in the shard folder: new `B<nnn>` shard, `_index.md` row, tier heads re-ranked with batch markers, disposition appended
 - [ ] Convergence and contradiction calls made against existing insights
 - [ ] Links wired in both directions
@@ -256,6 +301,8 @@ This is the part a human actually reads. Everything above earns it.
 
 - Never invent or reconstruct a transcript. If retrieval fails, say so and give
   the steps to fetch it by hand.
+- Never invent an engagement number. Record what the platform showed, or record
+  that it showed nothing and why.
 - Never discard raw material after writing a note.
 - Never drop a required section. Write "none."
 - Never post, share, upload, download, purchase, or contact anyone without

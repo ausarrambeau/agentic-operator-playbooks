@@ -24,6 +24,9 @@ Each playbook is designed to be:
 - [Turn one video into notes you can still argue with](tracks/video-starter.md)
   — have your assistant watch a video you never got to, and keep the transcript
   and timestamps that let you recheck every claim.
+- [Capture what you already consume](tracks/capture-starter.md) — turn the
+  YouTube, Instagram, and X you watch anyway into notes carrying graded claims,
+  stated provenance, and the raw material behind them.
 - [Build one verified slice](tracks/building-starter.md) — turn one idea into a
   bounded brief, a smallest testable implementation, and a verification
   receipt.
@@ -52,4 +55,4 @@ node validation/check-course.mjs
 ```
 
 This checks the learner contracts, private-data boundary, and Markdown fences
-for the one-pager and all five tracks.
+for the one-pager and every track.
