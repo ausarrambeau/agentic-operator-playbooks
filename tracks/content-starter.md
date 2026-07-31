@@ -74,8 +74,24 @@ Create three openings that make the same promise from different angles:
 2. **Proof first** — the visible result or test.
 3. **Tension first** — the assumption that failed or the error that was caught.
 
-Choose the hook whose promised payoff your owned proof can resolve fastest.
-Do not imitate another creator’s identity, catchphrases, or personal story.
+**Choose by resemblance, not by ranking.** The temptation is to pick whichever
+opening "performs best." Measured across roughly 2,700 posts, that ranking does
+not exist: every hook shape with enough observations flips sign between
+accounts, so the same shape that lifts one feed depresses another. A shape wins
+where it fits how the subject is naturally built, and it does not transfer to a
+piece with a different shape.
+
+So ask which format this piece most resembles, borrow that shape, and say why
+the shape matches. "This kind of hook does well" is not a reason and should be
+treated as a rejected answer.
+
+One more bar, before any of this is worth doing: **if you cannot say why a
+specific post would earn attention, it is not ready.** Interesting-to-builders
+and watched are different things, and ideating from what you built selects for
+the first. A piece with no stated reason anyone outside your own work would stop
+for is a piece to rethink, not to polish.
+
+Do not imitate another creator's identity, catchphrases, or personal story.
 
 ### 5. Build the proof sequence
 

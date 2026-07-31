@@ -97,6 +97,38 @@ const files = {
     allowRuntimePaths: true,
     patterns: [/skills\/ingest/, /WHISPER_MODEL/],
   },
+  verify: {
+    path: "../tracks/verify-starter.md",
+    patterns: [
+      /verify-receipt\.md/,
+      /paste the output/i,
+      /passing tests and working software[\s\S]{0,20}are two different claims/i,
+      /must name what it did not check/i,
+      /Do not take any external action/,
+    ],
+  },
+  authority: {
+    path: "../tracks/authority-starter.md",
+    patterns: [
+      /authority-map\.md/,
+      /\*\*reversible\*\*, \*\*needs a yes\*\*, \*\*never\*\*/,
+      /every one produced the warning[\s\S]{0,60}only[\s\S]{0,20}two[\s\S]{0,20}stopped/,
+      /ends the turn/,
+      /yesterday's yes does not carry/,
+      /Do not take any external action/,
+    ],
+  },
+  recall: {
+    path: "../tracks/recall-starter.md",
+    patterns: [
+      /memory-index\.md/,
+      /one fact per file/i,
+      /not found[\s\S]{0,40}(is a|correct answer|legal answer)/i,
+      /never append a correction/i,
+      /absolute date/i,
+      /Do not take any external action/i,
+    ],
+  },
   capture: {
     path: "../tracks/capture-starter.md",
     patterns: [

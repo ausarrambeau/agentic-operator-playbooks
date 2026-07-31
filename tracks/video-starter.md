@@ -426,13 +426,14 @@ already learned. This playbook gets you the capture half honestly and
 completely. Building the retrieval half is the next thing, and it is where the
 compounding actually lives.
 
-That build is what the Agentic Operator community exists for. The playbooks
-there pick up exactly where this one stops: where the notes live, how they get
-indexed, how an agent searches across all of them, and how a contradiction
-surfaces on its own instead of waiting for you to notice it. Free to join, and
-this whole library is inside it.
+That build is the [recall playbook](recall-starter.md), and it picks up exactly
+where this one stops: where the notes live, how they get indexed, how an agent
+searches across all of them before it answers, and why two notes on one subject
+are worse than none. Do this one first. A retrieval system over three notes
+teaches you nothing.
 
-**<https://whop.com/agentic-operator>**
+The whole library, including that one, lives at
+<https://whop.com/agentic-operator>.
 
 If you only ever use the loop above, it was still worth your ten minutes. But
 capture without retrieval has a ceiling, and you will hit it around the fortieth
