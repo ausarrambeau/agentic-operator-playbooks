@@ -142,6 +142,49 @@ const files = {
       /without asking me\s+first/i,
     ],
   },
+  // The canonical agent-ready playbook. Copied byte-identical from the
+  // content-harness artifact the reel promises — it must name the CLI's real
+  // install path for agents whose PATH misses it, so runtime paths are
+  // allowed here the same way they are for the skills readme.
+  "content radar playbook": {
+    path: "../playbooks/content-radar.md",
+    allowRuntimePaths: true,
+    patterns: [
+      /# Content Radar/,
+      /PRINT A RECEIPT FOR EVERY METERED CALL/,
+      /A TIMED-OUT CALL IS STILL BILLED/,
+      /flat \$0\.01 per call/i,
+      /clips_tab_pinned_user_ids/,
+      /partial_data/,
+      /never write 0/,
+      /owner-only/i,
+    ],
+  },
+  "content radar starter": {
+    path: "../tracks/content-radar-starter.md",
+    patterns: [
+      /playbooks\/content-radar\.md/,
+      /content-radar-<date>-<topic>\.json/,
+      /receipt for every metered call/i,
+      /still billed/i,
+      /pinned/i,
+      /not the lever/i,
+      /Null is not zero/i,
+      /owner-only/i,
+      /Do not give your agent a payment method/,
+    ],
+  },
+  "content radar cheatsheet": {
+    path: "../one-pagers/content-radar-cheatsheet.md",
+    patterns: [
+      /playbooks\/content-radar\.md/,
+      /\$0\.01 per CALL/,
+      /still billed/i,
+      /pinned/i,
+      /owner-only/i,
+      /Literal AND/i,
+    ],
+  },
 };
 
 // Never permitted anywhere: real machine paths, secrets, and platform IDs.

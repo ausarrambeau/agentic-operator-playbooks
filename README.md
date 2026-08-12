@@ -34,6 +34,12 @@ Each playbook is designed to be:
   create an original draft whose claims stay inside proof you own.
 - [Find one useful job for your assistant](tracks/explore-starter.md) — run one
   small, reversible experiment before committing to a larger system.
+- [Run a Content Radar on your niche](tracks/content-radar-starter.md) — one
+  paste turns your agent into a niche researcher: this week's trend, real
+  keyword volumes, a competitor's outliers, and a ranked 7-day plan with a
+  receipt for every call. Quick reference:
+  [the cheatsheet](one-pagers/content-radar-cheatsheet.md). Full instruction
+  set: [the Content Radar playbook](playbooks/content-radar.md).
 
 ## How to use a playbook
 
