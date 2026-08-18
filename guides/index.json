@@ -1,0 +1,10 @@
+{
+  "guides": [
+    {
+      "slug": "renaissance-build",
+      "title": "The Renaissance Build",
+      "summary": "How Shopify built the Editions Winter '26 site — and how to build one like it, verified from the shipped bundles.",
+      "order": 1
+    }
+  ]
+}
