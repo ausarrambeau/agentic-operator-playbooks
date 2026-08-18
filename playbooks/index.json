@@ -1,0 +1,81 @@
+{
+  "playbooks": [
+    {
+      "slug": "eight-moves",
+      "title": "The eight moves",
+      "summary": "Eight things that make a set of notes act instead of sit there — each one the exact wording to paste into your assistant. Start here.",
+      "path": "one-pagers/eight-moves.md",
+      "order": 1
+    },
+    {
+      "slug": "capture",
+      "title": "Capture what you already consume",
+      "summary": "YouTube, Instagram and X turned into notes you can search, quote and argue with later — one loop, and the different lie each platform tells you.",
+      "path": "tracks/capture-starter.md",
+      "order": 2
+    },
+    {
+      "slug": "research",
+      "title": "Research that survives being challenged",
+      "summary": "Research is not collecting links. Turn a real question into a decision that holds up when someone pushes back on it.",
+      "path": "tracks/research-starter.md",
+      "order": 3
+    },
+    {
+      "slug": "content",
+      "title": "Turn one real receipt into one honest post",
+      "summary": "Strong content does not begin with a viral hook. It begins with something real you did — this is how one receipt becomes a post.",
+      "path": "tracks/content-starter.md",
+      "order": 4
+    },
+    {
+      "slug": "video",
+      "title": "Turn one video into notes you can still argue with",
+      "summary": "For the video you saved weeks ago and still have not opened — a loop that gets the substance out of it in one pass.",
+      "path": "tracks/video-starter.md",
+      "order": 5
+    },
+    {
+      "slug": "recall",
+      "title": "Ask your own notes first",
+      "summary": "You have already decided this. Your assistant has not read it. Memory your assistant actually re-reads before it answers.",
+      "path": "tracks/recall-starter.md",
+      "order": 6
+    },
+    {
+      "slug": "verify",
+      "title": "Evidence before you say it works",
+      "summary": "Your assistant told you it works — and your assistant is also the thing that built it. Receipts instead of reassurance.",
+      "path": "tracks/verify-starter.md",
+      "order": 7
+    },
+    {
+      "slug": "authority",
+      "title": "Decide once what it may do without asking",
+      "summary": "The question everyone asks first is whether the thing can be trusted. Draw the line deliberately, once, instead of at every prompt.",
+      "path": "tracks/authority-starter.md",
+      "order": 8
+    },
+    {
+      "slug": "content-radar",
+      "title": "Run a Content Radar on your niche",
+      "summary": "The guided version: one run turns your coding agent into a niche content researcher and hands back a ranked 7-day plan.",
+      "path": "tracks/content-radar-starter.md",
+      "order": 9
+    },
+    {
+      "slug": "content-radar-prompt",
+      "title": "Content Radar — the full prompt",
+      "summary": "The complete paste-able instruction set: trends, real search volume and CPC for up to 1,000 keywords, and a competitor's recent posts, priced as it runs.",
+      "path": "playbooks/content-radar.md",
+      "order": 10
+    },
+    {
+      "slug": "content-radar-cheatsheet",
+      "title": "Content Radar — the one-page version",
+      "summary": "One paste, three legs, a ranked 7-day plan, and a JSON file that makes runs comparable.",
+      "path": "one-pagers/content-radar-cheatsheet.md",
+      "order": 11
+    }
+  ]
+}
