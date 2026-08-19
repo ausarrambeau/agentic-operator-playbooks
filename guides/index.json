@@ -5,6 +5,12 @@
       "title": "The Renaissance Build",
       "summary": "How Shopify built the Editions Winter '26 site — and how to build one like it, verified from the shipped bundles.",
       "order": 1
+    },
+    {
+      "slug": "second-brain-build",
+      "title": "The Second Brain Build",
+      "summary": "Karpathy's LLM Wiki pattern — how it works, the prompt that builds one, and where it breaks, measured against a live 4,757-file instance.",
+      "order": 2
     }
   ]
 }
